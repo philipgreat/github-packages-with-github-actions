@@ -9,7 +9,7 @@
 
 plugins {
     id "maven-publish"
-	id 'java'
+    id 'java'
     id 'java-library'
 }
 
@@ -34,14 +34,13 @@ testing {
 }
 
 
-
 group = 'com.testbank'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-  mavenLocal()
-  mavenCentral()
+    mavenLocal()
+    mavenCentral()
 }
 
 publishing {
@@ -53,6 +52,19 @@ publishing {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
             }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+            // components.java jar包
+            // components.web war包
+            from components.java
+            // 增加 sourcesJar、javadocJar 任务
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
 }
