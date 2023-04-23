@@ -1,6 +1,7 @@
 <root name="bank" org="testbank">
 
-    <type_definition name="createTime" min="2000-01-01T00:00:00" parent="dateTime"/>
+    
+<type_definition name="createTime" min="2000-01-01T00:00:00" parent="dateTime"/>
 
     <platform
             name="好平台"
