@@ -8,8 +8,9 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
+    id "maven-publish"
+	id 'java'
+    id 'java-library'
 }
 
 repositories {
@@ -32,7 +33,16 @@ testing {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'github.packages.with.github.actions.App'
+
+
+group = 'com.testbank'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
 }
+
+
+
