@@ -23,8 +23,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Generate Code
       run: |
-        curl --location --request POST 'https://springboot-teaql-gen-code-xxlfpicwgi.cn-chengdu.fcapp.run/generate' --form 'name="test"' --form 'file=@"model.xml"' --output ./.tmp/domain.zip
+        mkdir -p ./.tmp
         cd ./.tmp
+        curl --location --request POST 'https://springboot-teaql-gen-code-xxlfpicwgi.cn-chengdu.fcapp.run/generate' --form 'name="test"' --form 'file=@"../model.xml"' --output domain.zip
         unzip domain.zip
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2.4.2
