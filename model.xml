@@ -1,4 +1,4 @@
-i<root name="bank" org="testbank">
+<root name="bank" org="testbank">
 
     <type_definition name="createTime" min="2000-01-01T00:00:00" parent="dateTime"/>
 
