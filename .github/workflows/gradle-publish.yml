@@ -24,6 +24,7 @@ jobs:
     - name: Generate Code
       run: |
         curl --location --request POST 'https://springboot-teaql-gen-code-xxlfpicwgi.cn-chengdu.fcapp.run/generate' --form 'name="model"' --form 'file=@"model.xml"' -O
+        ls
         unzip model.zip
         ls
     - name: Build with Gradle
