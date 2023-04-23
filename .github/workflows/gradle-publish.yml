@@ -27,11 +27,13 @@ jobs:
         cd ./.tmp
         curl --location --request POST 'https://springboot-teaql-gen-code-xxlfpicwgi.cn-chengdu.fcapp.run/generate' --form 'name="test"' --form 'file=@"../model.xml"' --output domain.zip
         unzip domain.zip
-    - name: Build with Gradle
+    - name: Build Package with Gradle
       uses: gradle/gradle-build-action@v2.4.2
       with:
         arguments: build
-    - name: Publish to GitHub Packages
+        gradle-version: current
+        build-root-directory: ./.tmp
+    - name: Publish Package to GitHub Packages
       uses: gradle/gradle-build-action@v2.4.2
       with:
         arguments: publish
