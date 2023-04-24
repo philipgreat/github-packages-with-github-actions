@@ -38,5 +38,9 @@ jobs:
       uses: gradle/gradle-build-action@v2.4.2
       with:
         arguments: publish
+        gradle-version: current
+        build-root-directory: ./.tmp
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPOSITORY: ${{ github.repository }}
+        ORG: ${{ secrets.GITHUB_ACTOR }}
